@@ -143,6 +143,7 @@ namespace Kütüphane_Otomasyonu
             komut.Parameters.AddWithValue("@uyea", ÜyeAdı);
             komut.ExecuteNonQuery();
             baglanti.Close();
+
         }
 
         public static void üyeGuncelle(string ÜyeAdı, string ÜyeSoyadı, string Meslek, int TelNo)
