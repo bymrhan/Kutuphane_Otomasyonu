@@ -27,6 +27,8 @@ namespace Kütüphane_Otomasyonu
             panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
             panel2.BackColor = Color.FromArgb(100, 0, 0, 0);
             label2.Text = "Hoşgeldiniz sayın " + Form6.gonderilecekveri;
+            
+           
         }
 
  
@@ -68,6 +70,15 @@ namespace Kütüphane_Otomasyonu
             kapat.Close();
             Form9 f9 = new Form9();
             f9.Show();
+            this.Hide();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            Form2 kapat = new Form2();
+            kapat.Close();
+            Form1 ac = new Form1();
+            ac.Show();
             this.Hide();
         }
     }

@@ -16,7 +16,7 @@ namespace Kütüphane_Otomasyonu
         {
             InitializeComponent();
         }
-
+        public static string gonderilecekveri;
         private void button1_Click(object sender, EventArgs e)
         {
             string KullaniciAdi = textBox1.Text;
@@ -34,7 +34,8 @@ namespace Kütüphane_Otomasyonu
             {
                 Form7 kapat = new Form7();
                 kapat.Close();
-                Form2 yeni = new Form2();
+                gonderilecekveri = textBox1.Text;
+                Form10 yeni = new Form10();
                 yeni.Show();
                 this.Hide();
             }
@@ -42,7 +43,11 @@ namespace Kütüphane_Otomasyonu
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Form7 kapat = new Form7();
+            kapat.Close();
+            Form1 ac = new Form1();
+            ac.Show();
+            this.Hide();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -50,6 +55,11 @@ namespace Kütüphane_Otomasyonu
             Form8 yeni = new Form8();
             yeni.Show();
             this.Hide();
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
         }
     }
 }

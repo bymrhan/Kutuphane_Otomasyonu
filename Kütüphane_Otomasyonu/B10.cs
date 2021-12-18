@@ -33,7 +33,7 @@ namespace Kütüphane_Otomasyonu
         }
         public static bool Üye(string KullaniciAdi, int Sifre)
         {
-            string veri = "select*from Üye where KullaniciAdi=@klnc AND Sifre=@sfr";
+            string veri = "select*from Üyeler where Üye_kadi=@klnc AND Üye_sifre=@sfr";
             OleDbCommand komut = new OleDbCommand();
             komut.Connection = baglanti;
             komut.CommandText = veri;
