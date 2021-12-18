@@ -114,11 +114,15 @@ namespace Kütüphane_Otomasyonu
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int secilen = dataGridView1.SelectedCells[0].RowIndex;
-            string ÜyeAdı = dataGridView1.Rows[secilen].Cells[1].Value.ToString();
-            string ÜyeSoyadı =dataGridView1.Rows[secilen].Cells[2].Value.ToString();
-            string Meslek = dataGridView1.Rows[secilen].Cells[3].Value.ToString();
-            int TelNo = Convert.ToInt32(dataGridView1.Rows[secilen].Cells[4].Value);
+            string Üyekadi = dataGridView1.Rows[secilen].Cells[1].Value.ToString();
+            string Üyekşifre= dataGridView1.Rows[secilen].Cells[2].Value.ToString();
+            string ÜyeAdı = dataGridView1.Rows[secilen].Cells[3].Value.ToString();
+            string ÜyeSoyadı =dataGridView1.Rows[secilen].Cells[4].Value.ToString();
+            string Meslek = dataGridView1.Rows[secilen].Cells[5].Value.ToString();
+            int TelNo = Convert.ToInt32(dataGridView1.Rows[secilen].Cells[6].Value);
 
+            textBox5.Text = Üyekadi;
+            textBox6.Text = Üyekşifre;
             textBox1.Text = ÜyeAdı;
             textBox2.Text = ÜyeSoyadı;
             textBox3.Text = Meslek;

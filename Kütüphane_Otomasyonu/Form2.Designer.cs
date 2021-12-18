@@ -46,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -60,7 +61,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(22, 9);
+            this.label1.Location = new System.Drawing.Point(9, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 17);
@@ -112,9 +113,9 @@
             this.label8.Location = new System.Drawing.Point(576, 9);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 17);
+            this.label8.Size = new System.Drawing.Size(106, 17);
             this.label8.TabIndex = 12;
-            this.label8.Text = "İstatistikler";
+            this.label8.Text = "İSTATİSKLER";
             // 
             // pictureBox1
             // 
@@ -122,7 +123,7 @@
             this.pictureBox1.Image = global::Kütüphane_Otomasyonu.Properties.Resources.guide_book;
             this.pictureBox1.Location = new System.Drawing.Point(28, 30);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(73, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
@@ -130,11 +131,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label6);
@@ -148,9 +151,9 @@
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = global::Kütüphane_Otomasyonu.Properties.Resources.analytics;
-            this.pictureBox5.Location = new System.Drawing.Point(563, 29);
+            this.pictureBox5.Location = new System.Drawing.Point(589, 29);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox5.Size = new System.Drawing.Size(73, 50);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 18;
             this.pictureBox5.TabStop = false;
@@ -160,9 +163,9 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = global::Kütüphane_Otomasyonu.Properties.Resources.team_member;
-            this.pictureBox3.Location = new System.Drawing.Point(410, 29);
+            this.pictureBox3.Location = new System.Drawing.Point(422, 30);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox3.Size = new System.Drawing.Size(73, 50);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 18;
             this.pictureBox3.TabStop = false;
@@ -172,9 +175,9 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::Kütüphane_Otomasyonu.Properties.Resources.book;
-            this.pictureBox2.Location = new System.Drawing.Point(229, 30);
+            this.pictureBox2.Location = new System.Drawing.Point(231, 30);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(73, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 18;
             this.pictureBox2.TabStop = false;
@@ -226,14 +229,27 @@
             // 
             // pictureBox4
             // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = global::Kütüphane_Otomasyonu.Properties.Resources.close;
-            this.pictureBox4.Location = new System.Drawing.Point(804, 402);
+            this.pictureBox4.Location = new System.Drawing.Point(776, 29);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(73, 55);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.Size = new System.Drawing.Size(73, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 22;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(773, 9);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 17);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "ÇIKIŞ YAP";
             // 
             // Form2
             // 
@@ -244,7 +260,6 @@
             this.BackgroundImage = global::Kütüphane_Otomasyonu.Properties.Resources.elitefon_ru_39599;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(889, 500);
-            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -283,5 +298,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label3;
     }
 }

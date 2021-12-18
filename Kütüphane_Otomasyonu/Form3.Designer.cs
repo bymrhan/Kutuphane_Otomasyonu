@@ -44,6 +44,7 @@
             this.kütüphaneBilgileriDataSet1 = new Kütüphane_Otomasyonu.KütüphaneBilgileriDataSet1();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,15 +59,14 @@
             this.üyelerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.üyelerTableAdapter = new Kütüphane_Otomasyonu.KütüphaneBilgileriDataSetTableAdapters.ÜyelerTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.kütüphaneBilgileriDataSet3 = new Kütüphane_Otomasyonu.KütüphaneBilgileriDataSet3();
             this.kitapBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kitapTableAdapter = new Kütüphane_Otomasyonu.KütüphaneBilgileriDataSet3TableAdapters.KitapTableAdapter();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet1BindingSource)).BeginInit();
@@ -76,9 +76,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.üyelerBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -217,6 +217,12 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // ımageList1
+            // 
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "search.png");
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -347,20 +353,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kitap İşlemleri";
             // 
-            // kütüphaneBilgileriDataSet3
-            // 
-            this.kütüphaneBilgileriDataSet3.DataSetName = "KütüphaneBilgileriDataSet3";
-            this.kütüphaneBilgileriDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kitapBindingSource
-            // 
-            this.kitapBindingSource.DataMember = "Kitap";
-            this.kitapBindingSource.DataSource = this.kütüphaneBilgileriDataSet3;
-            // 
-            // kitapTableAdapter
-            // 
-            this.kitapTableAdapter.ClearBeforeFill = true;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.comboBox1);
@@ -376,12 +368,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detaylı Kitap Arama";
             // 
-            // ımageList1
-            // 
-            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
-            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.ımageList1.Images.SetKeyName(0, "search.png");
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -395,6 +381,27 @@
             this.comboBox1.TabIndex = 14;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(5, 57);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 20);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Kitap Adı:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox5.Location = new System.Drawing.Point(122, 54);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(121, 23);
+            this.textBox5.TabIndex = 2;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -407,26 +414,19 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Arama Türü :";
             // 
-            // textBox5
+            // kütüphaneBilgileriDataSet3
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox5.Location = new System.Drawing.Point(122, 54);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(121, 23);
-            this.textBox5.TabIndex = 2;
+            this.kütüphaneBilgileriDataSet3.DataSetName = "KütüphaneBilgileriDataSet3";
+            this.kütüphaneBilgileriDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label6
+            // kitapBindingSource
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(5, 57);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 20);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Kitap Adı:";
+            this.kitapBindingSource.DataMember = "Kitap";
+            this.kitapBindingSource.DataSource = this.kütüphaneBilgileriDataSet3;
+            // 
+            // kitapTableAdapter
+            // 
+            this.kitapTableAdapter.ClearBeforeFill = true;
             // 
             // Form3
             // 
@@ -458,10 +458,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.üyelerBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
