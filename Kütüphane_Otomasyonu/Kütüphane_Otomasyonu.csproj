@@ -67,6 +67,12 @@
     <Compile Include="Form10.Designer.cs">
       <DependentUpon>Form10.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form11.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form11.Designer.cs">
+      <DependentUpon>Form11.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form10.resx">
       <DependentUpon>Form10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form11.resx">
+      <DependentUpon>Form11.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
@@ -245,6 +254,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Itzikgur-My-Seven-Books-2.ico" />
+    <None Include="Resources\upload.png" />
     <None Include="Resources\team-member.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\elitefon.ru-39599.jpg" />
@@ -253,6 +263,8 @@
     <None Include="Resources\analytics.png" />
     <None Include="Resources\book-stack.png" />
     <None Include="Resources\community.png" />
+    <None Include="Resources\admin %281%29.png" />
+    <None Include="Resources\backup.png" />
     <Content Include="Resources\kitaplar.ico" />
     <None Include="Resources\admin.png" />
     <None Include="Resources\man %281%29.png" />

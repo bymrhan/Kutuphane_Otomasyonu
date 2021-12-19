@@ -81,5 +81,14 @@ namespace Kütüphane_Otomasyonu
             ac.Show();
             this.Hide();
         }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            Form2 kapat = new Form2();
+            kapat.Close();
+            Form11 f11 = new Form11();
+            f11.Show();
+            this.Hide();
+        }
     }
 }
