@@ -102,9 +102,9 @@ namespace Kütüphane_Otomasyonu
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            Form2 kapat = new Form2();
+            Form5 kapat = new Form5();
             kapat.Close();
-            Form1 ac = new Form1();
+            Form2 ac = new Form2();
             ac.Show();
             this.Hide();
         }
