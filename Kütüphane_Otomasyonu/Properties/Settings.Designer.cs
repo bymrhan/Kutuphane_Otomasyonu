@@ -44,5 +44,16 @@ namespace Kütüphane_Otomasyonu.Properties {
                 return ((string)(this["KütüphaneBilgileriConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=SQLNCLI11;Data Source=WIN-03MQN6HB3DG;Integrated Security=SSPI;Initial C" +
+            "atalog=KütüphaneBilgileri")]
+        public string sqlconnection {
+            get {
+                return ((string)(this["sqlconnection"]));
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace Kütüphane_Otomasyonu
           
         }
 
-        static string baglantiYolu = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source= KütüphaneBilgileri.mdb";
+        static string baglantiYolu = @"Provider=SQLNCLI11;Data Source=WIN-03MQN6HB3DG;Integrated Security=SSPI;Initial Catalog=KütüphaneBilgileri";
         static OleDbConnection baglanti = new OleDbConnection(baglantiYolu);
 
         private void çIKIŞToolStripMenuItem_Click(object sender, EventArgs e)
