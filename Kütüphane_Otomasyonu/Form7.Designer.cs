@@ -199,6 +199,7 @@ namespace Kütüphane_Otomasyonu
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form7";
             this.Text = "Kullanıcı Giriş";
+            this.Load += new System.EventHandler(this.Form7_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -101,7 +101,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(688, 9);
+            this.label7.Location = new System.Drawing.Point(841, 10);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 18);
@@ -253,7 +253,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel4.Location = new System.Drawing.Point(836, 17);
+            this.panel4.Location = new System.Drawing.Point(985, 17);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(50, 1);
             this.panel4.TabIndex = 21;

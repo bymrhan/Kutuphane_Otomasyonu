@@ -50,7 +50,6 @@
             this.meslekDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.üyelerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kütüphaneBilgileriDataSet = new Kütüphane_Otomasyonu.KütüphaneBilgileriDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,17 +64,18 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.üyelerTableAdapter = new Kütüphane_Otomasyonu.KütüphaneBilgileriDataSetTableAdapters.ÜyelerTableAdapter();
-            this.kütüphaneBilgileriDataSet2 = new Kütüphane_Otomasyonu.KütüphaneBilgileriDataSet2();
             this.kitapBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Kütüphane_Otomasyonu.DataSet1();
+            this.üyelerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.üyelerTableAdapter1 = new Kütüphane_Otomasyonu.DataSet1TableAdapters.ÜyelerTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.üyelerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.üyelerBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -205,7 +205,7 @@
             this.üyeSoyadıDataGridViewTextBoxColumn,
             this.meslekDataGridViewTextBoxColumn,
             this.telNoDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.üyelerBindingSource;
+            this.dataGridView1.DataSource = this.üyelerBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(24, 287);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
@@ -219,6 +219,7 @@
             this.üyeNoDataGridViewTextBoxColumn.DataPropertyName = "ÜyeNo";
             this.üyeNoDataGridViewTextBoxColumn.HeaderText = "ÜyeNo";
             this.üyeNoDataGridViewTextBoxColumn.Name = "üyeNoDataGridViewTextBoxColumn";
+            this.üyeNoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // üyekadiDataGridViewTextBoxColumn
             // 
@@ -255,16 +256,6 @@
             this.telNoDataGridViewTextBoxColumn.DataPropertyName = "TelNo";
             this.telNoDataGridViewTextBoxColumn.HeaderText = "TelNo";
             this.telNoDataGridViewTextBoxColumn.Name = "telNoDataGridViewTextBoxColumn";
-            // 
-            // üyelerBindingSource
-            // 
-            this.üyelerBindingSource.DataMember = "Üyeler";
-            this.üyelerBindingSource.DataSource = this.kütüphaneBilgileriDataSet;
-            // 
-            // kütüphaneBilgileriDataSet
-            // 
-            this.kütüphaneBilgileriDataSet.DataSetName = "KütüphaneBilgileriDataSet";
-            this.kütüphaneBilgileriDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -433,19 +424,19 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "Kullanıcı Adı :";
             // 
-            // üyelerTableAdapter
+            // dataSet1
             // 
-            this.üyelerTableAdapter.ClearBeforeFill = true;
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // kütüphaneBilgileriDataSet2
+            // üyelerBindingSource1
             // 
-            this.kütüphaneBilgileriDataSet2.DataSetName = "KütüphaneBilgileriDataSet2";
-            this.kütüphaneBilgileriDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.üyelerBindingSource1.DataMember = "Üyeler";
+            this.üyelerBindingSource1.DataSource = this.dataSet1;
             // 
-            // kitapBindingSource
+            // üyelerTableAdapter1
             // 
-            this.kitapBindingSource.DataMember = "Kitap";
-            this.kitapBindingSource.DataSource = this.kütüphaneBilgileriDataSet2;
+            this.üyelerTableAdapter1.ClearBeforeFill = true;
             // 
             // Form5
             // 
@@ -469,12 +460,12 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.üyelerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.üyelerBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -508,11 +499,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private KütüphaneBilgileriDataSet kütüphaneBilgileriDataSet;
         private System.Windows.Forms.BindingSource üyelerBindingSource;
-        private KütüphaneBilgileriDataSetTableAdapters.ÜyelerTableAdapter üyelerTableAdapter;
         private System.Windows.Forms.BindingSource kitapBindingSource;
-        private KütüphaneBilgileriDataSet2 kütüphaneBilgileriDataSet2;
         private System.Windows.Forms.DataGridViewTextBoxColumn üyeNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn üyekadiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn üyesifreDataGridViewTextBoxColumn;
@@ -520,5 +508,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn üyeSoyadıDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn meslekDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telNoDataGridViewTextBoxColumn;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource üyelerBindingSource1;
+        private DataSet1TableAdapters.ÜyelerTableAdapter üyelerTableAdapter1;
     }
 }

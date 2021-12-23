@@ -45,7 +45,6 @@ namespace Kütüphane_Otomasyonu
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -58,6 +57,7 @@ namespace Kütüphane_Otomasyonu
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -67,7 +67,6 @@ namespace Kütüphane_Otomasyonu
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.groupBox6.SuspendLayout();
@@ -76,6 +75,7 @@ namespace Kütüphane_Otomasyonu
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -249,17 +249,6 @@ namespace Kütüphane_Otomasyonu
             this.label6.TabIndex = 1;
             this.label6.Text = ".";
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::Kütüphane_Otomasyonu.Properties.Resources.close;
-            this.pictureBox6.Location = new System.Drawing.Point(519, 396);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(69, 54);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 2;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
-            // 
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.Transparent;
@@ -396,6 +385,18 @@ namespace Kütüphane_Otomasyonu
             this.pictureBox10.TabIndex = 0;
             this.pictureBox10.TabStop = false;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.Image = global::Kütüphane_Otomasyonu.Properties.Resources.close;
+            this.pictureBox6.Location = new System.Drawing.Point(492, 396);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(73, 50);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 23;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            // 
             // Form9
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,7 +432,6 @@ namespace Kütüphane_Otomasyonu
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -444,6 +444,7 @@ namespace Kütüphane_Otomasyonu
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,7 +467,6 @@ namespace Kütüphane_Otomasyonu
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox7;
@@ -479,5 +479,6 @@ namespace Kütüphane_Otomasyonu
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

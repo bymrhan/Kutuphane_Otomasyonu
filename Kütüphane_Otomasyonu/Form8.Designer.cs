@@ -30,18 +30,11 @@ namespace Kütüphane_Otomasyonu
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form8));
-            this.uye1 = new Kütüphane_Otomasyonu.Uye();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.uye1 = new Kütüphane_Otomasyonu.Uye();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
-            // 
-            // uye1
-            // 
-            this.uye1.BackColor = System.Drawing.SystemColors.Control;
-            this.uye1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("uye1.BackgroundImage")));
-            this.uye1.Location = new System.Drawing.Point(17, 12);
-            this.uye1.Name = "uye1";
-            this.uye1.Size = new System.Drawing.Size(365, 427);
-            this.uye1.TabIndex = 0;
             // 
             // label7
             // 
@@ -55,18 +48,40 @@ namespace Kütüphane_Otomasyonu
             this.label7.TabIndex = 30;
             this.label7.Text = "Üye Ol";
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = global::Kütüphane_Otomasyonu.Properties.Resources.close;
+            this.pictureBox4.Location = new System.Drawing.Point(267, 419);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 31;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // uye1
+            // 
+            this.uye1.BackColor = System.Drawing.SystemColors.Control;
+            this.uye1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("uye1.BackgroundImage")));
+            this.uye1.Location = new System.Drawing.Point(17, 12);
+            this.uye1.Name = "uye1";
+            this.uye1.Size = new System.Drawing.Size(365, 427);
+            this.uye1.TabIndex = 0;
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Kütüphane_Otomasyonu.Properties.Resources.dd64da585bc57cb05e5fd4d8ce873f57;
             this.ClientSize = new System.Drawing.Size(394, 470);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.uye1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form8";
-            this.Text = "Form8";
-            this.Load += new System.EventHandler(this.Form8_Load);
+            this.Text = "Üye Ol";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -76,5 +91,6 @@ namespace Kütüphane_Otomasyonu
 
         private Uye uye1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

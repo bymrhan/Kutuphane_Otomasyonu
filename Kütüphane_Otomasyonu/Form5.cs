@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Kütüphane_Otomasyonu
 {
@@ -19,8 +19,8 @@ namespace Kütüphane_Otomasyonu
           
         }
 
-        static string baglantiYolu = @"Provider=SQLNCLI11;Data Source=WIN-03MQN6HB3DG;Integrated Security=SSPI;Initial Catalog=KütüphaneBilgileri";
-        static OleDbConnection baglanti = new OleDbConnection(baglantiYolu);
+        static string baglantiYolu = "Data Source=WIN-03MQN6HB3DG;Integrated Security=SSPI;Initial Catalog=KütüphaneBilgileri";
+        static SqlConnection baglanti = new SqlConnection(baglantiYolu);
 
         private void çIKIŞToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -38,14 +38,16 @@ namespace Kütüphane_Otomasyonu
 
         private void Form5_Load(object sender, EventArgs e)
         {
+            // TODO: Bu kod satırı 'dataSet1.Üyeler' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
+            this.üyelerTableAdapter1.Fill(this.dataSet1.Üyeler);
             // TODO: Bu kod satırı 'kütüphaneBilgileriDataSet.Üyeler' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
-            this.üyelerTableAdapter.Fill(this.kütüphaneBilgileriDataSet.Üyeler);
+
 
         }
         public void üyeleriListele()
         {
             string veri = "select*from Üyeler";
-            OleDbDataAdapter adaptor = new OleDbDataAdapter(veri, baglanti);
+            SqlDataAdapter adaptor = new SqlDataAdapter(veri, baglanti);
             DataSet ds = new DataSet();
             adaptor.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
@@ -132,8 +134,6 @@ namespace Kütüphane_Otomasyonu
 
         private void üYEGÜNCELLEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
-
             string ÜyeAdı = textBox1.Text;
             string ÜyeSoyadı = textBox2.Text;
             string Meslek = textBox3.Text;
@@ -165,8 +165,8 @@ namespace Kütüphane_Otomasyonu
         {
             baglanti.Open();
             string veri = "select * from Üyeler where ÜyeAdı like '%" + textBox1.Text + "%'";
-            OleDbCommand komut = new OleDbCommand(veri, baglanti);
-            OleDbDataAdapter adaptor = new OleDbDataAdapter(komut);
+            SqlCommand komut = new SqlCommand(veri, baglanti);
+            SqlDataAdapter adaptor = new SqlDataAdapter(komut);
             DataSet DS = new DataSet();
             adaptor.Fill(DS);
             dataGridView1.DataSource = DS.Tables[0];

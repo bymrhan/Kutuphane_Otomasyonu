@@ -33,12 +33,9 @@ namespace Kütüphane_Otomasyonu
             int TelNo = Convert.ToInt32(textBox4.Text);
 
             B10.üyeEkle(Üyek_kadi,Üyek_sifre, ÜyeAdı, ÜyeSoyadı, Meslek, TelNo);
-            MessageBox.Show("ÜYE KAYDI  BAŞARILI...");
+            MessageBox.Show("ÜYE KAYDI BAŞARILI...");
             button1.Enabled = false;
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
+            
         }
     }
 }

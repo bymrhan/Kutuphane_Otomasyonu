@@ -36,9 +36,6 @@
     <ApplicationIcon>Itzikgur-My-Seven-Books-2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>..\..\Bnfu_1.5.3_crack\Bunifu_UI_v1.5.3.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -126,26 +123,6 @@
     <Compile Include="Form9.Designer.cs">
       <DependentUpon>Form9.cs</DependentUpon>
     </Compile>
-    <Compile Include="KütüphaneBilgileriDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KütüphaneBilgileriDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="KütüphaneBilgileriDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KütüphaneBilgileriDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="KütüphaneBilgileriDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KütüphaneBilgileriDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="KütüphaneBilgileriDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KütüphaneBilgileriDataSet3.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Uye.cs">
@@ -210,50 +187,6 @@
     </None>
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="KütüphaneBilgileriDataSet.xsc">
-      <DependentUpon>KütüphaneBilgileriDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="KütüphaneBilgileriDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>KütüphaneBilgileriDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="KütüphaneBilgileriDataSet.xss">
-      <DependentUpon>KütüphaneBilgileriDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="KütüphaneBilgileriDataSet1.xsc">
-      <DependentUpon>KütüphaneBilgileriDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="KütüphaneBilgileriDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>KütüphaneBilgileriDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="KütüphaneBilgileriDataSet1.xss">
-      <DependentUpon>KütüphaneBilgileriDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="KütüphaneBilgileriDataSet2.xsc">
-      <DependentUpon>KütüphaneBilgileriDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="KütüphaneBilgileriDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>KütüphaneBilgileriDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="KütüphaneBilgileriDataSet2.xss">
-      <DependentUpon>KütüphaneBilgileriDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="KütüphaneBilgileriDataSet3.xsc">
-      <DependentUpon>KütüphaneBilgileriDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="KütüphaneBilgileriDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>KütüphaneBilgileriDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="KütüphaneBilgileriDataSet3.xss">
-      <DependentUpon>KütüphaneBilgileriDataSet3.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

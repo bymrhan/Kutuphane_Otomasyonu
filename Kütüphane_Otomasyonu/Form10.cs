@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Kütüphane_Otomasyonu
 {
@@ -18,10 +18,11 @@ namespace Kütüphane_Otomasyonu
             InitializeComponent();
 
         }
-        static string baglantiYolu = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source= KütüphaneBilgileri.mdb";
-        static OleDbConnection baglanti = new OleDbConnection(baglantiYolu);
-        OleDbDataReader dr;
-        OleDbDataReader drr;
+
+        static string baglantiYolu = "Data Source=WIN-03MQN6HB3DG;Integrated Security=SSPI;Initial Catalog=KütüphaneBilgileri";
+        static SqlConnection baglanti = new SqlConnection(baglantiYolu);
+
+      
         string uyeno;
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -38,16 +39,16 @@ namespace Kütüphane_Otomasyonu
             label3.Text += Form7.gonderilecekveri;
             baglanti.Open();
             string veri = "select*from Kitap";
-            OleDbDataAdapter adaptor = new OleDbDataAdapter(veri, baglanti);
+            SqlDataAdapter adaptor = new SqlDataAdapter(veri, baglanti);
             DataSet ds = new DataSet();
             adaptor.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
 
             string kullanici = Form7.gonderilecekveri;
             string veriuye = "select * from Üyeler where Üye_kadi like '%" + kullanici + "%'";
-            OleDbCommand komutuye = new OleDbCommand(veriuye, baglanti);
-            OleDbDataAdapter adaptoruye = new OleDbDataAdapter(komutuye);
-            komutuye.ExecuteNonQuery();
+            SqlCommand komutuye = new SqlCommand(veriuye, baglanti);
+            SqlDataAdapter adaptoruye = new SqlDataAdapter(komutuye);
+            SqlDataReader dr;
             dr = komutuye.ExecuteReader();
             while (dr.Read())
             {
@@ -56,8 +57,8 @@ namespace Kütüphane_Otomasyonu
             }
 
             string veriuyee = "select * from Emanetler where ÜyeNo like '%" + uyeno + "%'";
-            OleDbCommand komutuyee = new OleDbCommand(veriuyee, baglanti);
-            OleDbDataAdapter adaptoruyee = new OleDbDataAdapter(komutuyee);
+            SqlCommand komutuyee = new SqlCommand(veriuyee, baglanti);
+            SqlDataAdapter adaptoruyee = new SqlDataAdapter(komutuyee);
             DataSet dss = new DataSet();
             adaptoruyee.Fill(dss);
             dataGridView2.DataSource = dss.Tables[0];

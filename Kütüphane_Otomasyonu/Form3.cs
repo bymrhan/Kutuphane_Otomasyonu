@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Kütüphane_Otomasyonu
 {
@@ -18,14 +18,16 @@ namespace Kütüphane_Otomasyonu
             InitializeComponent();
         }
 
-        static string baglantiYolu = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source= KütüphaneBilgileri.mdb";
-        static OleDbConnection baglanti = new OleDbConnection(baglantiYolu);
+        static string baglantiYolu = "Data Source=WIN-03MQN6HB3DG;Integrated Security=SSPI;Initial Catalog=KütüphaneBilgileri";
+        static SqlConnection baglanti = new SqlConnection(baglantiYolu);
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            // TODO: Bu kod satırı 'dataSet1.Kitap' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
+            this.kitapTableAdapter1.Fill(this.dataSet1.Kitap);
             comboBox1.SelectedIndex = 0;
-            groupBox2.Visible = false;
-
+            groupBox2.Visible = true;
+            button4.Enabled = false;
 
 
         }
@@ -59,7 +61,7 @@ namespace Kütüphane_Otomasyonu
         public void kitapListele()
         {
             string veri = "select*from Kitap";
-            OleDbDataAdapter adaptor = new OleDbDataAdapter(veri, baglanti);
+            SqlDataAdapter adaptor = new SqlDataAdapter(veri, baglanti);
             DataSet ds = new DataSet();
             adaptor.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
@@ -133,6 +135,77 @@ namespace Kütüphane_Otomasyonu
 
         private void kİTAPBİLGİLERİGÜNCELLEToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            button4.Enabled = true;
+        }
+
+        private void kİTAPARAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            groupBox2.Visible = true;
+            button1.Visible = false;          
+            button2.Visible = false;
+            button3.Enabled = true;
+            button4.Visible = false;
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
+            textBox1.Visible = false;
+            textBox2.Visible = false;
+            textBox3.Visible = false;
+            textBox4.Visible = false;
+            MessageBox.Show("Arama Türünü Seçin !!!");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            baglanti.Open();
+            if (comboBox1.Text == "Kitap Adı")
+            { 
+                string veri = "select * from Kitap where KitapAdı like '%" + textBox5.Text + "%'";
+                SqlCommand komut = new SqlCommand(veri, baglanti);
+                SqlDataAdapter adaptor = new SqlDataAdapter(komut);
+                DataSet DS = new DataSet();
+                adaptor.Fill(DS);
+                dataGridView1.DataSource = DS.Tables[0];
+            }
+            if (comboBox1.Text == "Yazar")
+            {
+                string veri = "select * from Kitap where Yazar like '%" + textBox5.Text + "%'";
+                SqlCommand komut = new SqlCommand(veri, baglanti);
+                SqlDataAdapter adaptor = new SqlDataAdapter(komut);
+                DataSet DS = new DataSet();
+                adaptor.Fill(DS);
+                dataGridView1.DataSource = DS.Tables[0];
+            }
+            if (comboBox1.Text == "Basım Evi")
+            {
+                string veri = "select * from Kitap where BasımEvi like '%" + textBox5.Text + "%'";
+                SqlCommand komut = new SqlCommand(veri, baglanti);
+                SqlDataAdapter adaptor = new SqlDataAdapter(komut);
+                DataSet DS = new DataSet();
+                adaptor.Fill(DS);
+                dataGridView1.DataSource = DS.Tables[0];
+            }
+       
+            baglanti.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string veri = "select*from Kitap";
+            SqlDataAdapter adaptor = new SqlDataAdapter(veri, baglanti);
+            DataSet ds = new DataSet();
+            adaptor.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label6.Text = comboBox1.Text + " :";
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
             string KitapAdı = textBox1.Text;
             int SayfaNo = Convert.ToInt32(textBox2.Text);
             string Yazar = textBox3.Text;
@@ -144,67 +217,6 @@ namespace Kütüphane_Otomasyonu
             textBox3.Clear();
             textBox4.Clear();
             kitapListele();
-        }
-
-        private void kİTAPARAToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            groupBox2.Visible = true;
-            button1.Visible = false;          
-            button2.Visible = false;
-            button3.Enabled = true;
-            label1.Visible = false;
-            label2.Visible = false;
-            label3.Visible = false;
-            label4.Visible = false;
-            textBox1.Visible = false;
-            textBox2.Visible = false;
-            textBox3.Visible = false;
-            textBox4.Visible = false;
-            MessageBox.Show("Aramak İsteğiniz Kitabın İsmini Girin!!!");
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            baglanti.Open();
-            if (comboBox1.Text == "Kitap Adı")
-            {
-                string veri = "select * from Kitap where KitapAdı like '%" + textBox5.Text + "%'";
-                OleDbCommand komut = new OleDbCommand(veri, baglanti);
-                OleDbDataAdapter adaptor = new OleDbDataAdapter(komut);
-                DataSet DS = new DataSet();
-                adaptor.Fill(DS);
-                dataGridView1.DataSource = DS.Tables[0];
-            }
-            if (comboBox1.Text == "Yazar")
-            {
-                string veri = "select * from Kitap where Yazar like '%" + textBox5.Text + "%'";
-                OleDbCommand komut = new OleDbCommand(veri, baglanti);
-                OleDbDataAdapter adaptor = new OleDbDataAdapter(komut);
-                DataSet DS = new DataSet();
-                adaptor.Fill(DS);
-                dataGridView1.DataSource = DS.Tables[0];
-            }
-            //string veri = "select * from Kitap where KitapAdı like '%"+textBox1.Text+"%'";
-            //OleDbCommand komut = new OleDbCommand(veri, baglanti);
-            //OleDbDataAdapter adaptor = new OleDbDataAdapter(komut);
-            //DataSet DS = new DataSet();
-            //adaptor.Fill(DS);
-            //dataGridView1.DataSource = DS.Tables[0];
-            baglanti.Close();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            string veri = "select*from Kitap";
-            OleDbDataAdapter adaptor = new OleDbDataAdapter(veri, baglanti);
-            DataSet ds = new DataSet();
-            adaptor.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0];
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            label6.Text = comboBox1.Text + " :";
         }
     }
 }

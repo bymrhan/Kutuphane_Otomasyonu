@@ -18,16 +18,14 @@ namespace Kütüphane_Otomasyonu
             InitializeComponent();
         }
 
-       
-
-        private void Form8_Load(object sender, EventArgs e)
+        private void pictureBox4_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void uye1_Load(object sender, EventArgs e)
-        {
-
+            Form8 kapat = new Form8();
+            kapat.Close();
+            Form7 yeni = new Form7();
+            yeni.Show();
+            this.Close();
+           
         }
     }
 }

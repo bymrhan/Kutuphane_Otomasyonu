@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Kütüphane_Otomasyonu
 {
@@ -17,15 +17,16 @@ namespace Kütüphane_Otomasyonu
         {
             InitializeComponent();
         }
-        OleDbDataReader dr;
-        OleDbDataReader drr;
-        static string baglantiYolu = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source= KütüphaneBilgileri.mdb";
-        static OleDbConnection baglanti = new OleDbConnection(baglantiYolu);
+        SqlDataAdapter dr;
+        SqlDataAdapter drr;
+
+        static string baglantiYolu = "Data Source=WIN-03MQN6HB3DG;Integrated Security=SSPI;Initial Catalog=KütüphaneBilgileri";
+        static SqlConnection baglanti = new SqlConnection(baglantiYolu);
 
         public void emanetListele()
         {
             string veri = "select*from Emanetler";
-            OleDbDataAdapter adaptor = new OleDbDataAdapter(veri, baglanti);
+            SqlDataAdapter adaptor = new SqlDataAdapter(veri, baglanti);
             DataSet ds = new DataSet();
             adaptor.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
@@ -56,26 +57,37 @@ namespace Kütüphane_Otomasyonu
 
             baglanti.Open();
             string veri = "select * from Kitap ";
-            OleDbCommand komut = new OleDbCommand(veri, baglanti);
-            OleDbDataAdapter adaptor = new OleDbDataAdapter(komut);
+            SqlCommand komut = new SqlCommand(veri, baglanti);
+            SqlDataAdapter adaptor = new SqlDataAdapter(komut);
+            komut.Connection = baglanti;
+            komut.CommandType = CommandType.Text;
+
+            SqlDataReader dr;  
             dr = komut.ExecuteReader();
             while (dr.Read())
             {
-                comboBox1.Items.Add(dr["kitapAdı"]);
-
+                comboBox1.Items.Add(dr["KitapAdı"]);
             }
+            dr.Close();
+
+            baglanti.Close();
            
+            SqlCommand komutuye = new SqlCommand();
+            komutuye.CommandText = "SELECT *FROM Üyeler";
+            komutuye.Connection = baglanti;
+            komutuye.CommandType = CommandType.Text;
 
-            string veriuye = "select * from Üyeler ";
-            OleDbCommand komutuye = new OleDbCommand(veriuye, baglanti);
-            OleDbDataAdapter adaptoruye = new OleDbDataAdapter(komutuye);
-            drr = komutuye.ExecuteReader();
-            while (drr.Read())
+            SqlDataReader druye;
+            baglanti.Open();
+            druye = komutuye.ExecuteReader();
+            
+            while (druye.Read())
             {
-                comboBox2.Items.Add(drr["Üye_kadi"]);
-
+                comboBox2.Items.Add(druye["Üye_kadi"]);
             }
             baglanti.Close();
+            
+          
         }
 
         private void eMANETKİTAPEKLEToolStripMenuItem_Click(object sender, EventArgs e)
@@ -185,8 +197,8 @@ namespace Kütüphane_Otomasyonu
         {
             baglanti.Open();
             string veri = "select * from Emanetler where KitapAdı like '%" + comboBox1.Text + "%'";
-            OleDbCommand komut = new OleDbCommand(veri, baglanti);
-            OleDbDataAdapter adaptor = new OleDbDataAdapter(komut);
+            SqlCommand komut = new SqlCommand(veri, baglanti);
+            SqlDataAdapter adaptor = new SqlDataAdapter(komut);
             DataSet DS = new DataSet();
             adaptor.Fill(DS);
             dataGridView1.DataSource = DS.Tables[0];
@@ -195,31 +207,37 @@ namespace Kütüphane_Otomasyonu
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            baglanti.Open();
-            string veri = "select * from Kitap where KitapAdı  like '%" + comboBox1.Text + "%'" ;
-            OleDbCommand komut = new OleDbCommand(veri, baglanti);
-            OleDbDataAdapter adaptor = new OleDbDataAdapter(komut);
-            komut.ExecuteNonQuery();
-            dr =  komut.ExecuteReader();
-             while (dr.Read())
-            {
-                textBox2.Text = dr["KitapNumarası"].ToString();
+            SqlCommand komutk = new SqlCommand();
+            komutk.CommandText = "select * from Kitap where KitapAdı  like '%" + comboBox1.Text + "%'";
+            komutk.Connection = baglanti;
+            komutk.CommandType = CommandType.Text;
 
+            SqlDataReader drk;
+            baglanti.Open();
+            drk = komutk.ExecuteReader();
+            
+            while (drk.Read())
+            {
+                textBox2.Text = drk["KitapNumarası"].ToString();
             }
+            drk.Close();
             baglanti.Close();
+
+            
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             baglanti.Open();
             string veriuye = "select * from Üyeler where Üye_kadi like '%" + comboBox2.Text + "%'";
-            OleDbCommand komutuye = new OleDbCommand(veriuye, baglanti);
-            OleDbDataAdapter adaptor = new OleDbDataAdapter(komutuye);
+            SqlCommand komutuye = new SqlCommand(veriuye, baglanti);
+            SqlDataAdapter adaptor = new SqlDataAdapter(komutuye);
             komutuye.ExecuteNonQuery();
-            drr = komutuye.ExecuteReader();
-            while (drr.Read())
+            SqlDataReader dr;
+            dr = komutuye.ExecuteReader();
+            while (dr.Read())
             {
-                textBox4.Text = drr["ÜyeNo"].ToString();
+                textBox4.Text = dr["ÜyeNo"].ToString();
 
             }
             baglanti.Close();

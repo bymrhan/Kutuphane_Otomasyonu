@@ -41,7 +41,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.kütüphaneBilgileriDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kütüphaneBilgileriDataSet1 = new Kütüphane_Otomasyonu.KütüphaneBilgileriDataSet1();
+           
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -53,32 +53,40 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.kütüphaneBilgileriDataSet = new Kütüphane_Otomasyonu.KütüphaneBilgileriDataSet();
+           
             this.kütüphaneBilgileriDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kütüphaneBilgileriDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.üyelerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.üyelerTableAdapter = new Kütüphane_Otomasyonu.KütüphaneBilgileriDataSetTableAdapters.ÜyelerTableAdapter();
+           
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.kütüphaneBilgileriDataSet3 = new Kütüphane_Otomasyonu.KütüphaneBilgileriDataSet3();
+           
             this.kitapBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kitapTableAdapter = new Kütüphane_Otomasyonu.KütüphaneBilgileriDataSet3TableAdapters.KitapTableAdapter();
+            this.dataSet1 = new Kütüphane_Otomasyonu.DataSet1();
+            this.kitapBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.kitapTableAdapter1 = new Kütüphane_Otomasyonu.DataSet1TableAdapters.KitapTableAdapter();
+            this.kitapNumarasıDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kitapAdıDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sayfaNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yazarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.basımEviDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.üyelerBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -154,7 +162,7 @@
             this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(50, 128);
+            this.button1.Location = new System.Drawing.Point(43, 127);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 58);
@@ -168,8 +176,17 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkCyan;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.kitapNumarasıDataGridViewTextBoxColumn,
+            this.kitapAdıDataGridViewTextBoxColumn,
+            this.sayfaNoDataGridViewTextBoxColumn,
+            this.yazarDataGridViewTextBoxColumn,
+            this.basımEviDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.kitapBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(29, 331);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
@@ -178,22 +195,12 @@
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // kütüphaneBilgileriDataSet1BindingSource
-            // 
-            this.kütüphaneBilgileriDataSet1BindingSource.DataSource = this.kütüphaneBilgileriDataSet1;
-            this.kütüphaneBilgileriDataSet1BindingSource.Position = 0;
-            // 
-            // kütüphaneBilgileriDataSet1
-            // 
-            this.kütüphaneBilgileriDataSet1.DataSetName = "KütüphaneBilgileriDataSet1";
-            this.kütüphaneBilgileriDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Yellow;
             this.button2.Enabled = false;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(222, 128);
+            this.button2.Location = new System.Drawing.Point(282, 127);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 58);
@@ -228,7 +235,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(63, 34);
+            this.label1.Location = new System.Drawing.Point(39, 33);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 20);
@@ -238,7 +245,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(164, 34);
+            this.textBox1.Location = new System.Drawing.Point(140, 33);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(176, 23);
@@ -249,7 +256,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(46, 87);
+            this.label2.Location = new System.Drawing.Point(22, 86);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 20);
@@ -259,7 +266,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox2.Location = new System.Drawing.Point(164, 87);
+            this.textBox2.Location = new System.Drawing.Point(140, 86);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(176, 23);
@@ -270,7 +277,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(381, 35);
+            this.label3.Location = new System.Drawing.Point(357, 34);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 20);
@@ -280,7 +287,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox3.Location = new System.Drawing.Point(473, 36);
+            this.textBox3.Location = new System.Drawing.Point(449, 35);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(176, 23);
@@ -291,7 +298,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(356, 88);
+            this.label4.Location = new System.Drawing.Point(332, 87);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 20);
@@ -301,42 +308,25 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox4.Location = new System.Drawing.Point(473, 86);
+            this.textBox4.Location = new System.Drawing.Point(449, 85);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(176, 23);
             this.textBox4.TabIndex = 8;
-            // 
-            // kütüphaneBilgileriDataSet
-            // 
-            this.kütüphaneBilgileriDataSet.DataSetName = "KütüphaneBilgileriDataSet";
-            this.kütüphaneBilgileriDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kütüphaneBilgileriDataSetBindingSource
-            // 
-            this.kütüphaneBilgileriDataSetBindingSource.DataSource = this.kütüphaneBilgileriDataSet;
-            this.kütüphaneBilgileriDataSetBindingSource.Position = 0;
-            // 
-            // kütüphaneBilgileriDataSetBindingSource1
-            // 
-            this.kütüphaneBilgileriDataSetBindingSource1.DataSource = this.kütüphaneBilgileriDataSet;
-            this.kütüphaneBilgileriDataSetBindingSource1.Position = 0;
             // 
             // üyelerBindingSource
             // 
             this.üyelerBindingSource.DataMember = "Üyeler";
             this.üyelerBindingSource.DataSource = this.kütüphaneBilgileriDataSetBindingSource1;
             // 
-            // üyelerTableAdapter
-            // 
-            this.üyelerTableAdapter.ClearBeforeFill = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox2);
@@ -361,7 +351,7 @@
             this.groupBox2.Controls.Add(this.textBox5);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(675, 173);
+            this.groupBox2.Location = new System.Drawing.Point(665, 19);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(335, 94);
             this.groupBox2.TabIndex = 14;
@@ -414,19 +404,73 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Arama Türü :";
             // 
-            // kütüphaneBilgileriDataSet3
+            // dataSet1
             // 
-            this.kütüphaneBilgileriDataSet3.DataSetName = "KütüphaneBilgileriDataSet3";
-            this.kütüphaneBilgileriDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // kitapBindingSource
+            // kitapBindingSource1
             // 
-            this.kitapBindingSource.DataMember = "Kitap";
-            this.kitapBindingSource.DataSource = this.kütüphaneBilgileriDataSet3;
+            this.kitapBindingSource1.DataMember = "Kitap";
+            this.kitapBindingSource1.DataSource = this.dataSet1;
             // 
-            // kitapTableAdapter
+            // kitapTableAdapter1
             // 
-            this.kitapTableAdapter.ClearBeforeFill = true;
+            this.kitapTableAdapter1.ClearBeforeFill = true;
+            // 
+            // kitapNumarasıDataGridViewTextBoxColumn
+            // 
+            this.kitapNumarasıDataGridViewTextBoxColumn.DataPropertyName = "KitapNumarası";
+            this.kitapNumarasıDataGridViewTextBoxColumn.HeaderText = "KitapNumarası";
+            this.kitapNumarasıDataGridViewTextBoxColumn.Name = "kitapNumarasıDataGridViewTextBoxColumn";
+            this.kitapNumarasıDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kitapAdıDataGridViewTextBoxColumn
+            // 
+            this.kitapAdıDataGridViewTextBoxColumn.DataPropertyName = "KitapAdı";
+            this.kitapAdıDataGridViewTextBoxColumn.HeaderText = "KitapAdı";
+            this.kitapAdıDataGridViewTextBoxColumn.Name = "kitapAdıDataGridViewTextBoxColumn";
+            // 
+            // sayfaNoDataGridViewTextBoxColumn
+            // 
+            this.sayfaNoDataGridViewTextBoxColumn.DataPropertyName = "SayfaNo";
+            this.sayfaNoDataGridViewTextBoxColumn.HeaderText = "SayfaNo";
+            this.sayfaNoDataGridViewTextBoxColumn.Name = "sayfaNoDataGridViewTextBoxColumn";
+            // 
+            // yazarDataGridViewTextBoxColumn
+            // 
+            this.yazarDataGridViewTextBoxColumn.DataPropertyName = "Yazar";
+            this.yazarDataGridViewTextBoxColumn.HeaderText = "Yazar";
+            this.yazarDataGridViewTextBoxColumn.Name = "yazarDataGridViewTextBoxColumn";
+            // 
+            // basımEviDataGridViewTextBoxColumn
+            // 
+            this.basımEviDataGridViewTextBoxColumn.DataPropertyName = "BasımEvi";
+            this.basımEviDataGridViewTextBoxColumn.HeaderText = "BasımEvi";
+            this.basımEviDataGridViewTextBoxColumn.Name = "basımEviDataGridViewTextBoxColumn";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Gold;
+            this.button4.Enabled = false;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button4.Location = new System.Drawing.Point(495, 127);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(130, 58);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "DEĞİŞTİR";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(665, 127);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(231, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Not : Yapmak İstediğiniz işlemleri meniden seçin";
             // 
             // Form3
             // 
@@ -451,17 +495,16 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSetBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.üyelerBindingSource)).EndInit();
+          
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -490,21 +533,29 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.BindingSource kütüphaneBilgileriDataSet1BindingSource;
-        private KütüphaneBilgileriDataSet1 kütüphaneBilgileriDataSet1;
-        private KütüphaneBilgileriDataSet kütüphaneBilgileriDataSet;
+        
         private System.Windows.Forms.BindingSource kütüphaneBilgileriDataSetBindingSource;
         private System.Windows.Forms.BindingSource kütüphaneBilgileriDataSetBindingSource1;
         private System.Windows.Forms.BindingSource üyelerBindingSource;
-        private KütüphaneBilgileriDataSetTableAdapters.ÜyelerTableAdapter üyelerTableAdapter;
+       
         private System.Windows.Forms.GroupBox groupBox1;
-        private KütüphaneBilgileriDataSet3 kütüphaneBilgileriDataSet3;
         private System.Windows.Forms.BindingSource kitapBindingSource;
-        private KütüphaneBilgileriDataSet3TableAdapters.KitapTableAdapter kitapTableAdapter;
+       
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ImageList ımageList1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox5;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource kitapBindingSource1;
+        private DataSet1TableAdapters.KitapTableAdapter kitapTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kitapNumarasıDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kitapAdıDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sayfaNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yazarDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn basımEviDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label7;
     }
 }

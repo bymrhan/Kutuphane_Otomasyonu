@@ -61,5 +61,10 @@ namespace Kütüphane_Otomasyonu
         {
             textBox1.Clear();
         }
+
+        private void Form7_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
