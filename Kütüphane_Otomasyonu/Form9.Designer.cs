@@ -343,7 +343,7 @@ namespace Kütüphane_Otomasyonu
             // pictureBox9
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox9.Image = global::Kütüphane_Otomasyonu.Properties.Resources.community;
+            this.pictureBox9.Image = global::Kütüphane_Otomasyonu.Properties.Resources.book;
             this.pictureBox9.Location = new System.Drawing.Point(18, 30);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(77, 57);
@@ -377,7 +377,7 @@ namespace Kütüphane_Otomasyonu
             // pictureBox10
             // 
             this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox10.Image = global::Kütüphane_Otomasyonu.Properties.Resources.community;
+            this.pictureBox10.Image = global::Kütüphane_Otomasyonu.Properties.Resources.unauthorized_person;
             this.pictureBox10.Location = new System.Drawing.Point(18, 30);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(77, 57);

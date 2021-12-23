@@ -18,15 +18,7 @@ namespace Kütüphane_Otomasyonu
         {
             InitializeComponent();
         }
-        StringFormat strFormat;
-        ArrayList arrColumnLefts = new ArrayList();
-        ArrayList arrColumnWidths = new ArrayList();
-        int iCellHeight = 0;
-        int iTotalWidth = 0;
-        int iRow = 0;
-        bool bFirstPage = false;
-        bool bNewPage = false;
-        int iHeaderHeight = 0;
+       
 
         private void button1_Click(object sender, EventArgs e)
         {

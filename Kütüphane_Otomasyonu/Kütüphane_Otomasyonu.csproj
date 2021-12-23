@@ -203,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Itzikgur-My-Seven-Books-2.ico" />
+    <None Include="Resources\unauthorized-person.png" />
     <None Include="Resources\upload.png" />
     <None Include="Resources\team-member.png" />
     <None Include="Resources\add.png" />

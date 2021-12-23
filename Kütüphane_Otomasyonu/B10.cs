@@ -98,12 +98,13 @@ namespace Kütüphane_Otomasyonu
             komut.ExecuteNonQuery();
             baglanti.Close();
         }
-        public static void emanetSil(string KitapAdı)
+        public static void emanetSil(string KitapAdı,string ÜyeNo)
         {
             baglanti.Open();
-            string veri = "delete from Emanetler where KitapAdı=@ktpa";
+            string veri = "delete from Emanetler where KitapAdı=@ktpa AND ÜyeNo=@uyen";
             SqlCommand komut = new SqlCommand(veri, baglanti);
             komut.Parameters.AddWithValue("@ktpa", KitapAdı);
+            komut.Parameters.AddWithValue("@uyen", ÜyeNo);
             komut.ExecuteNonQuery();
             baglanti.Close();
         }

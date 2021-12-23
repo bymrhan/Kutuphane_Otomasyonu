@@ -17,8 +17,6 @@ namespace Kütüphane_Otomasyonu
         {
             InitializeComponent();
         }
-        SqlDataAdapter dr;
-        SqlDataAdapter drr;
 
         static string baglantiYolu = "Data Source=WIN-03MQN6HB3DG;Integrated Security=SSPI;Initial Catalog=KütüphaneBilgileri";
         static SqlConnection baglanti = new SqlConnection(baglantiYolu);
@@ -54,6 +52,7 @@ namespace Kütüphane_Otomasyonu
         private void Form4_Load(object sender, EventArgs e)
         {
             emanetListele();
+            dateTimePicker2.Enabled = false;
 
             baglanti.Open();
             string veri = "select * from Kitap ";
@@ -112,12 +111,14 @@ namespace Kütüphane_Otomasyonu
             textBox4.Clear();
             dateTimePicker1.ResetText();
             dateTimePicker2.ResetText();
+            button4.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             string KitapAdı = comboBox1.Text;
-            B10.emanetSil(KitapAdı);
+            string ÜyeNo = textBox4.Text;
+            B10.emanetSil(KitapAdı,ÜyeNo);
             MessageBox.Show("İSTENİLEN KİTAP BAŞARIYLA SİLİNDİ...");
             //comboBox1.Clear();
             emanetListele();
@@ -136,13 +137,15 @@ namespace Kütüphane_Otomasyonu
         {
             button2.Enabled = true;
             label2.Visible = false;
-            label3.Visible = false;
+            label3.Visible = true;
             label4.Visible = false;
             label5.Visible = false;
+            label6.Visible = false;
             textBox2.Visible = false;
-            comboBox2.Visible = false;
+            comboBox2.Visible = true;
             textBox4.Visible = false;
             dateTimePicker1.Visible = false;
+            dateTimePicker2.Visible = false;
             MessageBox.Show("Silmek İsteğin Emanet Kitabın İsmini Gir!!!");
         }
 
@@ -167,35 +170,9 @@ namespace Kütüphane_Otomasyonu
 
         private void eMANETKİTAPGÜNCELLEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DateTime dtime1 = dateTimePicker1.Value;
-            DateTime dtime2 = dateTimePicker2.Value;
-            DateTime simdikizaman = DateTime.Now;
-            int sonuc = DateTime.Compare(dtime1, dtime2);
-
-            if (sonuc == 1)
-
-            {
-                MessageBox.Show("Emanet Geri Alma Tarihi Emanet Vermeden Önce Olamaz");
-            }
-
-            else
-            {
-                string KitapAdı = comboBox1.Text;
-                int KitapNo = Convert.ToInt32(textBox2.Text);
-                string ÜyeAdı = comboBox2.Text;
-                int ÜyeNo = Convert.ToInt32(textBox4.Text);
-                string AldığıTarih = dateTimePicker1.Text;
-                string TeslimTarih = dateTimePicker2.Text;
-                B10.emanetGuncelle(KitapAdı, KitapNo, ÜyeAdı, ÜyeNo, AldığıTarih, TeslimTarih);
-                MessageBox.Show("SEÇİLEN EMANET BAŞARIYLA GÜNCELLENDİ...");
-                comboBox1.Text = "";
-                textBox2.Clear();
-                comboBox2.Text = "";
-                textBox4.Clear();
-                dateTimePicker1.ResetText();
-                dateTimePicker2.ResetText();
-                emanetListele();
-            }
+            MessageBox.Show("İSTENİLEN BİLGİLERİ SEÇİNİZ...");
+            dateTimePicker2.Enabled = true;
+            button4.Enabled = true;
         }
 
         private void eMANETKİTAPARAToolStripMenuItem_Click(object sender, EventArgs e)
@@ -207,10 +184,12 @@ namespace Kütüphane_Otomasyonu
             label3.Visible = false;
             label4.Visible = false;
             label5.Visible = false;
+            label6.Visible = false;
             textBox2.Visible = false;
             comboBox2.Visible = false;
             textBox4.Visible = false;
             dateTimePicker1.Visible = false;
+            dateTimePicker2.Visible = false;
             MessageBox.Show("Aramak İsteğiniz Kitabın İsmini Girin!!!");
         }
 

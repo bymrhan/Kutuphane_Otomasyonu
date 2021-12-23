@@ -40,8 +40,9 @@
             this.çIKIŞToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.kitapBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new Kütüphane_Otomasyonu.DataSet1();
             this.kütüphaneBilgileriDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-           
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -53,31 +54,31 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-           
             this.kütüphaneBilgileriDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kütüphaneBilgileriDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.üyelerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-           
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-           
+            this.button4 = new System.Windows.Forms.Button();
             this.kitapBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new Kütüphane_Otomasyonu.DataSet1();
-            this.kitapBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.kitapTableAdapter1 = new Kütüphane_Otomasyonu.DataSet1TableAdapters.KitapTableAdapter();
+            this.kitapBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kitapBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.kitapNumarasıDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kitapAdıDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sayfaNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yazarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.basımEviDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSetBindingSource1)).BeginInit();
@@ -85,8 +86,9 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -186,7 +188,7 @@
             this.sayfaNoDataGridViewTextBoxColumn,
             this.yazarDataGridViewTextBoxColumn,
             this.basımEviDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.kitapBindingSource1;
+            this.dataGridView1.DataSource = this.kitapBindingSource3;
             this.dataGridView1.Location = new System.Drawing.Point(29, 331);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
@@ -194,6 +196,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(1016, 152);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // kitapBindingSource1
+            // 
+            this.kitapBindingSource1.DataMember = "Kitap";
+            this.kitapBindingSource1.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button2
             // 
@@ -343,6 +355,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kitap İşlemleri";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(665, 127);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(235, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Not : Yapmak İstediğiniz işlemleri menüden seçin";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.comboBox1);
@@ -404,19 +425,38 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Arama Türü :";
             // 
-            // dataSet1
+            // button4
             // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kitapBindingSource1
-            // 
-            this.kitapBindingSource1.DataMember = "Kitap";
-            this.kitapBindingSource1.DataSource = this.dataSet1;
+            this.button4.BackColor = System.Drawing.Color.Gold;
+            this.button4.Enabled = false;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button4.Location = new System.Drawing.Point(495, 127);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(130, 58);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "DEĞİŞTİR";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // kitapTableAdapter1
             // 
             this.kitapTableAdapter1.ClearBeforeFill = true;
+            // 
+            // kitapBindingSource2
+            // 
+            this.kitapBindingSource2.DataMember = "Kitap";
+            this.kitapBindingSource2.DataSource = this.dataSet1;
+            // 
+            // dataSet1BindingSource
+            // 
+            this.dataSet1BindingSource.DataSource = this.dataSet1;
+            this.dataSet1BindingSource.Position = 0;
+            // 
+            // kitapBindingSource3
+            // 
+            this.kitapBindingSource3.DataMember = "Kitap";
+            this.kitapBindingSource3.DataSource = this.dataSet1BindingSource;
             // 
             // kitapNumarasıDataGridViewTextBoxColumn
             // 
@@ -449,29 +489,6 @@
             this.basımEviDataGridViewTextBoxColumn.HeaderText = "BasımEvi";
             this.basımEviDataGridViewTextBoxColumn.Name = "basımEviDataGridViewTextBoxColumn";
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Gold;
-            this.button4.Enabled = false;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button4.Location = new System.Drawing.Point(495, 127);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(130, 58);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "DEĞİŞTİR";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(665, 127);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(231, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Not : Yapmak İstediğiniz işlemleri meniden seçin";
-            // 
             // Form3
             // 
             this.AcceptButton = this.button1;
@@ -494,6 +511,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kütüphaneBilgileriDataSetBindingSource1)).EndInit();
@@ -503,8 +522,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kitapBindingSource3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -550,12 +570,15 @@
         private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource kitapBindingSource1;
         private DataSet1TableAdapters.KitapTableAdapter kitapTableAdapter1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.BindingSource kitapBindingSource2;
         private System.Windows.Forms.DataGridViewTextBoxColumn kitapNumarasıDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kitapAdıDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sayfaNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yazarDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn basımEviDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.BindingSource kitapBindingSource3;
+        private System.Windows.Forms.BindingSource dataSet1BindingSource;
     }
 }

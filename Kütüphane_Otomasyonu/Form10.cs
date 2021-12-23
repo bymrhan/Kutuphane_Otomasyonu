@@ -33,10 +33,10 @@ namespace Kütüphane_Otomasyonu
             this.Hide();
             
         }
-
+        string kullanici = Form7.gonderilecekveri;
         private void Form10_Load(object sender, EventArgs e)
         {
-            label3.Text += Form7.gonderilecekveri;
+            label3.Text += kullanici;
             baglanti.Open();
             string veri = "select*from Kitap";
             SqlDataAdapter adaptor = new SqlDataAdapter(veri, baglanti);
@@ -44,7 +44,7 @@ namespace Kütüphane_Otomasyonu
             adaptor.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
 
-            string kullanici = Form7.gonderilecekveri;
+            
             string veriuye = "select * from Üyeler where Üye_kadi like '%" + kullanici + "%'";
             SqlCommand komutuye = new SqlCommand(veriuye, baglanti);
             SqlDataAdapter adaptoruye = new SqlDataAdapter(komutuye);
@@ -57,35 +57,62 @@ namespace Kütüphane_Otomasyonu
             }
             
             baglanti.Close();
+
+            emanetlistele();
+        }
+        public void emanetlistele()
+        {
             baglanti.Open();
-            veri = "SELECT * FROM Emanetler where ÜyeNo ="+uyeno;
+            string veri = "SELECT * FROM Emanetler where ÜyeNo =" + uyeno;
             SqlCommand komut = new SqlCommand(veri, baglanti);
-            adaptor = new SqlDataAdapter(komut);
+           SqlDataAdapter adaptor = new SqlDataAdapter(komut);
             DataSet DS = new DataSet();
             adaptor.Fill(DS);
             dataGridView2.DataSource = DS.Tables[0];
             baglanti.Close();
-            
         }
+        DateTime dt = DateTime.Now;
 
         private void button1_Click(object sender, EventArgs e)
         {
             int secilen = dataGridView2.SelectedCells[0].RowIndex;
             string KitapAdı = dataGridView2.Rows[secilen].Cells[1].Value.ToString();
-            DateTime dt = DateTime.Now;
+           
+            
             string TeslimTarihi = dt.ToLongDateString();
-            button2.Text = TeslimTarihi;
+           
             
             baglanti.Open();
-
-            string veri = "update Emanetler set TeslimTarihi=@trh where KitapAdı ="+ KitapAdı + "";
+            string veri = "update Emanetler set TeslimTarihi=@trh where KitapAdı like '%" + KitapAdı + "%'";
             SqlCommand komut = new SqlCommand(veri, baglanti);
 
             komut.Parameters.AddWithValue("@trh", TeslimTarihi);
-            
+            komut.ExecuteNonQuery();
             baglanti.Close();
 
+            emanetlistele();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int secilen = dataGridView1.SelectedCells[0].RowIndex;
+            string KitapAdı = dataGridView1.Rows[secilen].Cells[1].Value.ToString();
+            string KitapNo = dataGridView1.Rows[secilen].Cells[0].Value.ToString();
+            string ÜyeAdı = kullanici;
+            string ÜyeNo = uyeno;
+            string AldığıTarih = dt.ToLongDateString();
+
+            baglanti.Open();
+            string veri = "insert into Emanetler (KitapAdı,KitapNo,ÜyeAdı,ÜyeNo,AldığıTarih) values (@ktpa,@ktpn,@uye,@uyen,@trh)";
+            SqlCommand komut = new SqlCommand(veri, baglanti);
+            komut.Parameters.AddWithValue("@ktpa", KitapAdı);
+            komut.Parameters.AddWithValue("@ktpn", KitapNo);
+            komut.Parameters.AddWithValue("@uye", ÜyeAdı);
+            komut.Parameters.AddWithValue("@uyen", ÜyeNo);
+            komut.Parameters.AddWithValue("@trh", AldığıTarih);
+            komut.ExecuteNonQuery();
+            baglanti.Close();
+            emanetlistele();
         }
     }
 }
