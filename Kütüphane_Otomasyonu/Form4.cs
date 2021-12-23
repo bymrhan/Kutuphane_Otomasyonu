@@ -106,10 +106,12 @@ namespace Kütüphane_Otomasyonu
             MessageBox.Show("İSTENİLEN KİTAP EMANETLER LİSTESİNE BAŞARIYLA EKLENDİ...");
             button1.Enabled = false;
             emanetListele();
-           // comboBox1.Clear();
+            comboBox1.Text = "";
             textBox2.Clear();
-           // comboBox2.Clear();
+            comboBox2.Text = "";
             textBox4.Clear();
+            dateTimePicker1.ResetText();
+            dateTimePicker2.ResetText();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -152,29 +154,48 @@ namespace Kütüphane_Otomasyonu
             string ÜyeAdı = dataGridView1.Rows[secilen].Cells[3].Value.ToString();
             int ÜyeNo =Convert.ToInt32(dataGridView1.Rows[secilen].Cells[4].Value);
             string AldığıTarih = dataGridView1.Rows[secilen].Cells[5].Value.ToString();
+            string TeslimTarih = dataGridView1.Rows[secilen].Cells[6].Value.ToString();
 
             comboBox1.Text = KitapAdı;
             textBox2.Text = KitapNo.ToString();
             comboBox2.Text = ÜyeAdı;
             textBox4.Text = ÜyeNo.ToString();
             dateTimePicker1.Text = AldığıTarih;
+            dateTimePicker2.Text = TeslimTarih;
             emanetListele();
         }
 
         private void eMANETKİTAPGÜNCELLEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string KitapAdı = comboBox1.Text;
-            int KitapNo = Convert.ToInt32(textBox2.Text);
-            string ÜyeAdı = comboBox2.Text;
-            int ÜyeNo = Convert.ToInt32(textBox4.Text);
-            string AldığıTarih = dateTimePicker1.Text;
-            B10.emanetGuncelle(KitapAdı, KitapNo, ÜyeAdı, ÜyeNo, AldığıTarih);
-            MessageBox.Show("SEÇİLEN KİTAP BAŞARIYLA GÜNCELLENDİ...");
-            //comboBox1.Clear();
-            textBox2.Clear();
-            //comboBox2.Clear();
-            textBox4.Clear();
-            emanetListele();
+            DateTime dtime1 = dateTimePicker1.Value;
+            DateTime dtime2 = dateTimePicker2.Value;
+            DateTime simdikizaman = DateTime.Now;
+            int sonuc = DateTime.Compare(dtime1, dtime2);
+
+            if (sonuc == 1)
+
+            {
+                MessageBox.Show("Emanet Geri Alma Tarihi Emanet Vermeden Önce Olamaz");
+            }
+
+            else
+            {
+                string KitapAdı = comboBox1.Text;
+                int KitapNo = Convert.ToInt32(textBox2.Text);
+                string ÜyeAdı = comboBox2.Text;
+                int ÜyeNo = Convert.ToInt32(textBox4.Text);
+                string AldığıTarih = dateTimePicker1.Text;
+                string TeslimTarih = dateTimePicker2.Text;
+                B10.emanetGuncelle(KitapAdı, KitapNo, ÜyeAdı, ÜyeNo, AldığıTarih, TeslimTarih);
+                MessageBox.Show("SEÇİLEN EMANET BAŞARIYLA GÜNCELLENDİ...");
+                comboBox1.Text = "";
+                textBox2.Clear();
+                comboBox2.Text = "";
+                textBox4.Clear();
+                dateTimePicker1.ResetText();
+                dateTimePicker2.ResetText();
+                emanetListele();
+            }
         }
 
         private void eMANETKİTAPARAToolStripMenuItem_Click(object sender, EventArgs e)

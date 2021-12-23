@@ -55,13 +55,37 @@ namespace Kütüphane_Otomasyonu
                 uyeno = dr["ÜyeNo"].ToString();
 
             }
+            
+            baglanti.Close();
+            baglanti.Open();
+            veri = "SELECT * FROM Emanetler where ÜyeNo ="+uyeno;
+            SqlCommand komut = new SqlCommand(veri, baglanti);
+            adaptor = new SqlDataAdapter(komut);
+            DataSet DS = new DataSet();
+            adaptor.Fill(DS);
+            dataGridView2.DataSource = DS.Tables[0];
+            baglanti.Close();
+            
+        }
 
-            string veriuyee = "select * from Emanetler where ÜyeNo like '%" + uyeno + "%'";
-            SqlCommand komutuyee = new SqlCommand(veriuyee, baglanti);
-            SqlDataAdapter adaptoruyee = new SqlDataAdapter(komutuyee);
-            DataSet dss = new DataSet();
-            adaptoruyee.Fill(dss);
-            dataGridView2.DataSource = dss.Tables[0];
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int secilen = dataGridView2.SelectedCells[0].RowIndex;
+            string KitapAdı = dataGridView2.Rows[secilen].Cells[1].Value.ToString();
+            DateTime dt = DateTime.Now;
+            string TeslimTarihi = dt.ToLongDateString();
+            button2.Text = TeslimTarihi;
+            
+            baglanti.Open();
+
+            string veri = "update Emanetler set TeslimTarihi=@trh where KitapAdı ="+ KitapAdı + "";
+            SqlCommand komut = new SqlCommand(veri, baglanti);
+
+            komut.Parameters.AddWithValue("@trh", TeslimTarihi);
+            
+            baglanti.Close();
+
+
         }
     }
 }

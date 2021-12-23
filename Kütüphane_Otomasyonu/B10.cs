@@ -108,16 +108,17 @@ namespace Kütüphane_Otomasyonu
             baglanti.Close();
         }
 
-        public static void emanetGuncelle(string KitapAdı, int KitapNo, string ÜyeAdı, int ÜyeNo, string AldığıTarih)
+        public static void emanetGuncelle(string KitapAdı, int KitapNo, string ÜyeAdı, int ÜyeNo, string AldığıTarih,string TeslimTarih)
         {
             baglanti.Open();
-            string veri = "update Emanetler set KitapAdı=@ktpa,KitapNo=@ktpn,ÜyeAdı=@uye,ÜyeNo=@uyen,AldığıTarih=@trh where KitapAdı=@ktpa";
+            string veri = "update Emanetler set KitapAdı=@ktpa,KitapNo=@ktpn,ÜyeAdı=@uye,ÜyeNo=@uyen,AldığıTarih=@trh,TeslimTarihi=@teslimtrh where KitapAdı=@ktpa";
             SqlCommand komut = new SqlCommand(veri, baglanti);
             komut.Parameters.AddWithValue("@ktpa", KitapAdı);
             komut.Parameters.AddWithValue("@ktpn", KitapNo);
             komut.Parameters.AddWithValue("@uye", ÜyeAdı);
             komut.Parameters.AddWithValue("@uyen", ÜyeNo);
             komut.Parameters.AddWithValue("@trh", AldığıTarih);
+            komut.Parameters.AddWithValue("@teslimtrh", TeslimTarih);
             komut.ExecuteNonQuery();
             baglanti.Close();
         }

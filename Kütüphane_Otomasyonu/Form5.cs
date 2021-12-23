@@ -40,7 +40,7 @@ namespace Kütüphane_Otomasyonu
         {
             // TODO: Bu kod satırı 'dataSet1.Üyeler' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
             this.üyelerTableAdapter1.Fill(this.dataSet1.Üyeler);
-            // TODO: Bu kod satırı 'kütüphaneBilgileriDataSet.Üyeler' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
+           
 
 
         }
