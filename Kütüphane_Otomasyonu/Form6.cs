@@ -15,11 +15,13 @@ namespace Kütüphane_Otomasyonu
         public Form6()
         {
             InitializeComponent();
+            Init_Data();
         }
         public static string gonderilecekveri;
         public static string gonderilecekveri2;
         private void button1_Click(object sender, EventArgs e)
         {
+            Save_Data();
             string KullaniciAdi = textBox1.Text;
             int Sifre = Convert.ToInt16(textBox2.Text);
 
@@ -56,6 +58,52 @@ namespace Kütüphane_Otomasyonu
         private void textBox1_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
+        }
+
+        private void Form6_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Init_Data()
+        {
+            if (Properties.Settings.Default.UserName != string.Empty)
+            {
+                if (Properties.Settings.Default.Remember == true)
+                {
+                    textBox1.Text = Properties.Settings.Default.UserName;
+                    textBox2.Text = Properties.Settings.Default.sifre;
+                    chcRememberMe.Checked = true;
+                }
+                else
+                {
+                    textBox1.Text = Properties.Settings.Default.UserName;
+                    textBox2.Text = Properties.Settings.Default.sifre;
+                }
+            }
+        }
+
+        private void Save_Data()
+        {
+            if (chcRememberMe.Checked)
+            {
+                Properties.Settings.Default.UserName = textBox1.Text.Trim();
+                Properties.Settings.Default.sifre = textBox2.Text.Trim();
+                Properties.Settings.Default.Remember = true;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.UserName = "";
+                Properties.Settings.Default.sifre = "";
+                Properties.Settings.Default.Remember = false;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

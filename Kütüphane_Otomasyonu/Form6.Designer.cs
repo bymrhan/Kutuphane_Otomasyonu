@@ -42,6 +42,7 @@ namespace Kütüphane_Otomasyonu
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.chcRememberMe = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -52,7 +53,7 @@ namespace Kütüphane_Otomasyonu
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = global::Kütüphane_Otomasyonu.Properties.Resources.close;
-            this.pictureBox4.Location = new System.Drawing.Point(269, 370);
+            this.pictureBox4.Location = new System.Drawing.Point(266, 388);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 50);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -126,10 +127,10 @@ namespace Kütüphane_Otomasyonu
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.ImageKey = "enter.png";
             this.button1.ImageList = this.ımageList1;
-            this.button1.Location = new System.Drawing.Point(86, 303);
+            this.button1.Location = new System.Drawing.Point(86, 320);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 48);
+            this.button1.Size = new System.Drawing.Size(197, 48);
             this.button1.TabIndex = 13;
             this.button1.Text = "GİRİŞ";
             this.button1.UseVisualStyleBackColor = false;
@@ -163,12 +164,27 @@ namespace Kütüphane_Otomasyonu
             this.textBox1.Text = "kullanıcı adı girin";
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
+            // chcRememberMe
+            // 
+            this.chcRememberMe.AutoSize = true;
+            this.chcRememberMe.BackColor = System.Drawing.Color.Transparent;
+            this.chcRememberMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chcRememberMe.ForeColor = System.Drawing.Color.Crimson;
+            this.chcRememberMe.Location = new System.Drawing.Point(232, 291);
+            this.chcRememberMe.Name = "chcRememberMe";
+            this.chcRememberMe.Size = new System.Drawing.Size(110, 24);
+            this.chcRememberMe.TabIndex = 21;
+            this.chcRememberMe.Text = "Beni Hatırla";
+            this.chcRememberMe.UseVisualStyleBackColor = false;
+            this.chcRememberMe.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Kütüphane_Otomasyonu.Properties.Resources.dd64da585bc57cb05e5fd4d8ce873f57;
             this.ClientSize = new System.Drawing.Size(368, 450);
+            this.Controls.Add(this.chcRememberMe);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox3);
@@ -182,6 +198,7 @@ namespace Kütüphane_Otomasyonu
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form6";
             this.Text = "Admin Giriş";
+            this.Load += new System.EventHandler(this.Form6_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -204,5 +221,6 @@ namespace Kütüphane_Otomasyonu
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ImageList ımageList1;
+        private System.Windows.Forms.CheckBox chcRememberMe;
     }
 }
